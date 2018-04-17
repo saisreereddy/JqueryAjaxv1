@@ -183,3 +183,16 @@ body {
    width: 50%;
     height: 250px;
 }
+
+
+
+/* Medium screens */
+/*@media all and (min-width: 300px) {
+   .well_min_width{
+
+    width: 80vw;
+   }
+
+
+    
+    }*/

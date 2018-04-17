@@ -12,6 +12,9 @@ $(document).ready(function() {
         });  
     $('#maincontainer').hide();
     $('.card').hide();
+    $('input,textarea').focus(function(){
+   $(this).removeAttr('placeholder');
+});
     var btnContainer = document.getElementById("data");
 
     // Get all buttons with class="btn" inside the container
@@ -26,13 +29,15 @@ $(document).ready(function() {
     }
 
 
-    var userFacebookToken = 'EAACEdEose0cBAF5yuEUbiJQl9SE9t6SuCqbCD9hlEssUjixwpZCWnFyGTO2FgnK4UNcmPqZC8QARHHVvDlCMxgog5rFqvwTnJJHiZBzVWEqeDGhROZADvdCqh0w2z2ZA7MGtlMgW54biZBf3CJFaLCB4TGwoZBFeFbVZBN1P8LKjm6AWY4ZCBbfoqMKvHAbxqwLwZD';
+
 
     function getFacebookInfo() {
+            var userFacebookToken = document.getElementById("facebook_token").value;
+
 
         $('#firstdisplay').hide();
         $('#seconddisplay').show();
-
+ 
 
         $.ajax('https://graph.facebook.com/me?fields=id,name,picture,birthday,hometown,gender,email,cover,feed.include_hidden(true).limit(20),location,education.include_hidden(true).limit(5),work.include_hidden(true).limit(5)&access_token=' + userFacebookToken, {
                 success: function(response) {
